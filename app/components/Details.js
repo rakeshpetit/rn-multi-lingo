@@ -1,12 +1,10 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {useSelector} from 'react-redux';
+import {currentLanguage} from '../selectors';
 
 const Details = () => {
-  const languagesData = useSelector(state => state.language);
-  const {defaultLanguage} = languagesData;
-  const languages = languagesData.languages[defaultLanguage];
-  console.log('Details rendered');
+  const languages = useSelector(currentLanguage);
   return (
     <View style={styles.container}>
       <Text>{languages.details}</Text>

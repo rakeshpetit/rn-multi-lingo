@@ -1,12 +1,11 @@
 import React from 'react';
 import {View, StyleSheet, Button, Text} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
+import {currentLanguage} from '../selectors';
+
 const Home = ({navigation}) => {
-  const languagesData = useSelector(state => state.language);
+  const languages = useSelector(currentLanguage);
   const dispatch = useDispatch();
-  const {defaultLanguage} = languagesData;
-  const languages = languagesData.languages[defaultLanguage];
-  console.log('Home rendered');
   return (
     <View style={styles.container}>
       <Text>{languages.hello}</Text>
