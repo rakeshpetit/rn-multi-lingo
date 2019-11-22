@@ -1,8 +1,9 @@
 import React from 'react';
 import {View, StyleSheet, Button, Text} from 'react-native';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 const Home = ({navigation}) => {
   const languagesData = useSelector(state => state.language);
+  const dispatch = useDispatch();
   const {defaultLanguage} = languagesData;
   const languages = languagesData.languages[defaultLanguage];
   console.log('Home rendered');
@@ -15,7 +16,10 @@ const Home = ({navigation}) => {
         }}
         title={languages.detailsButton}
       />
-      <Button onPress={() => {}} title={languages.lanName} />
+      <Button
+        onPress={() => dispatch({type: 'CHANGE_LANGUAGE'})}
+        title={languages.lanName}
+      />
     </View>
   );
 };
