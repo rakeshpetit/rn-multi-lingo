@@ -5,8 +5,7 @@ const Home = ({navigation}) => {
   const languagesData = useSelector(state => state.language);
   const {defaultLanguage} = languagesData;
   const languages = languagesData.languages[defaultLanguage];
-  console.log('languages', languages);
-  console.log('defaultLanguage', defaultLanguage);
+  console.log('Home rendered');
   return (
     <View style={styles.container}>
       <Text>{languages.hello}</Text>
@@ -16,6 +15,7 @@ const Home = ({navigation}) => {
         }}
         title={languages.detailsButton}
       />
+      <Button onPress={() => {}} title={languages.lanName} />
     </View>
   );
 };

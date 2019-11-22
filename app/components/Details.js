@@ -6,6 +6,7 @@ const Details = () => {
   const languagesData = useSelector(state => state.language);
   const {defaultLanguage} = languagesData;
   const languages = languagesData.languages[defaultLanguage];
+  console.log('Details rendered');
   return (
     <View style={styles.container}>
       <Text>{languages.details}</Text>
