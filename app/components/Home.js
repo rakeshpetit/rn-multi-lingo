@@ -25,7 +25,11 @@ const Home = ({navigation}) => {
       />
       <Button
         onPress={() => dispatch({type: 'CHANGE_THEME'})}
-        title={theme === 'light' ? languages.dark : languages.light}
+        title={
+          theme === 'light'
+            ? `Switch to ${languages.dark}`
+            : `Switch to ${languages.light}`
+        }
       />
     </View>
   );
