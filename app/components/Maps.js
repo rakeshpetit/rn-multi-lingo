@@ -30,7 +30,6 @@ const Maps = () => {
       longitude: -0.08871,
     },
   ];
-  console.log('polylineCoords')
   return (
     <View style={styles.container}>
       <MapView
@@ -54,8 +53,8 @@ const Maps = () => {
         ))}
         <MapView.Polyline
           coordinates={polylineCoords}
-          strokeWidth={2}
-          strokeColor="red"
+          strokeWidth={5}
+          strokeColor="#1660D3"
         />
       </MapView>
     </View>
