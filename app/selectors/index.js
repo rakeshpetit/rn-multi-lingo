@@ -5,6 +5,10 @@ export const currentLanguage = createSelector(
   ({languages, defaultLanguage}) => languages[defaultLanguage],
 );
 
+export const currentTheme = createSelector(
+  state => state.theme,
+  ({defaultTheme}) => defaultTheme,
+);
 // Code below is an example to show why we use reselect
 
 // export const currentLanguage = state => {

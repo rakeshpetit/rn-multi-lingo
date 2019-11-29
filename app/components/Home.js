@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, StyleSheet, Button, Text} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-import {currentLanguage} from '../selectors';
+import {currentLanguage, currentTheme} from '../selectors';
+import {ThemeContext} from '../../index';
 
 const Home = ({navigation}) => {
   const languages = useSelector(currentLanguage);
+  const theme = useSelector(currentTheme);
+  const themes = useContext(ThemeContext);
+  console.log('Home theme', themes);
   const dispatch = useDispatch();
   return (
-    <View style={styles.container}>
-      <Text>{languages.hello}</Text>
+    <View style={[styles.container, {backgroundColor: themes.background}]}>
+      <Text style={{color: themes.textColor}}>{languages.hello}</Text>
       <Button
         onPress={() => {
           navigation.navigate('Details');
@@ -18,6 +22,10 @@ const Home = ({navigation}) => {
       <Button
         onPress={() => dispatch({type: 'CHANGE_LANGUAGE'})}
         title={languages.lanName}
+      />
+      <Button
+        onPress={() => dispatch({type: 'CHANGE_THEME'})}
+        title={theme === 'light' ? languages.dark : languages.light}
       />
     </View>
   );
