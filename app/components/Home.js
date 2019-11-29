@@ -19,18 +19,20 @@ const Home = ({navigation}) => {
         }}
         title={languages.detailsButton}
       />
-      <Button
-        onPress={() => dispatch({type: 'CHANGE_LANGUAGE'})}
-        title={languages.lanName}
-      />
-      <Button
-        onPress={() => dispatch({type: 'CHANGE_THEME'})}
-        title={
-          theme === 'light'
-            ? `Switch to ${languages.dark}`
-            : `Switch to ${languages.light}`
-        }
-      />
+      <View>
+        <Button
+          onPress={() => dispatch({type: 'CHANGE_LANGUAGE'})}
+          title={languages.lanName}
+        />
+        <Button
+          onPress={() => dispatch({type: 'CHANGE_THEME'})}
+          title={
+            theme === 'light'
+              ? `Switch to ${languages.dark}`
+              : `Switch to ${languages.light}`
+          }
+        />
+      </View>
     </View>
   );
 };
